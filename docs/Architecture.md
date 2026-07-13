@@ -31,7 +31,7 @@ flowchart TD
     F --> B
     B --> C
 
-    C -->|Retrieve / Store| K
+    C -->|Retrieve/Store| K
     C -->|Build Context| A
     A --> P
     P --> C

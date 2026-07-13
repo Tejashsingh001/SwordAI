@@ -1,7 +1,7 @@
-## 🤝 Development
+## 🚀 Vision
 
-SwordAI is an independent personal project developed by me with AI serving as an engineering assistant.
+SwordAI is an AI assistant built to solve the limitations of current AI systems.
 
-I drive the product vision, architecture, feature design, and technical decisions, while AI assists with implementation, debugging, code reviews, and technical explanations.
+Our goal is to create an assistant that remembers projects, understands long-term context, reduces repetitive work, automates tasks, and continuously improves its usefulness through structured memory, knowledge management, and automation.
 
-Every major architectural decision is discussed, understood, and documented before implementation.
+Rather than creating another chatbot, SwordAI focuses on building a smarter AI experience around existing AI models.

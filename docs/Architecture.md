@@ -31,11 +31,10 @@ flowchart TD
     F --> B
     B --> C
 
-    C -->|Retrieve/Store| K
+    C -->|Retrieve/Store/Update Knowledge| K
     C -->|Build Context| A
     A --> P
     P --> C
-    C -->    |Update Knowledge| K
     C --> F
 ```
 

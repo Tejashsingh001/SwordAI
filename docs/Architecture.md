@@ -1,265 +1,213 @@
-# SwordAI Architecture
-
-Version: 0.1
-
-Status: Evolving
-
-Last Updated: <13-07-2026>
-
-Note:
-This document represents the current architecture of SwordAI.
-It is expected to evolve as the product grows and better ideas emerge.
-Every major architectural change should be recorded in Decisions.md.
-
 # 🏗 SwordAI Architecture
 
-## Core Components
+**Version:** v0.1
 
-                  ┌────────────────────┐
-                  │       USER         │
-                  └─────────┬──────────┘
-                            │
-                            ▼
-                ┌─────────────────────┐
-                │   React Frontend    │
-                └─────────┬───────────┘
-                          │
-                          ▼
-                ┌─────────────────────┐
-                │  FastAPI Backend    │
-                └─────────┬───────────┘
-                          │
-                          ▼
-        ┌─────────────────────────────────────┐
-        │      Context & Memory Engine        │
-        └───────┬───────────────────┬─────────┘
-                │                   │
-      retrieve/store          build context
-                │                   │
-                ▼                   ▼
-┌────────────────────────┐   ┌────────────────────┐
-│ Local Knowledge Base   │   │    AI Engine       │
-│────────────────────────│   │────────────────────│
-│ • User Knowledge       │   │ • Prompt Builder   │
-│ • Projects             │   │ • Model Selector   │
-│ • Knowledge Graph      │   │ • Token Optimizer  │
-│ • Decisions            │   │ • Context Optimizer│
-│ • Tasks                │   └─────────┬──────────┘
-│ • Timeline             │             │
-└──────────▲─────────────┘             ▼
-           │               ┌───────────────────────┐
-           └──────────────►│     AI Providers      │
-                           │ Gemini • GPT • Claude │
-                           │ Ollama                │
-                           └──────────┬────────────┘
-                                      │
-                                      ▼
-                     Response → Context & Memory Engine
-                                      │
-                                      ▼
-                          Update Local Knowledge Base
-                                      │
-                                      ▼
-                               Return Response
+**Status:** Active (Architecture Frozen)
 
----
+**Last Updated:** 13 July 2026
 
-# Components
+> This document describes the current architecture of SwordAI.
+> The architecture will only be updated when a major architectural improvement or new core capability is introduced.
+> All architectural changes must be documented in `Decisions.md`.
 
-## 1. Frontend
+```mermaid
+flowchart TD
 
-The user interface where users interact with SwordAI.
+    U([User])
 
-Responsibilities:
-- Chat
-- Voice
+    F[React Frontend]
+
+    B[FastAPI Backend]
+
+    C["SwordAI Core<br/>Context & Memory Engine"]
+
+    K["Local Knowledge Base<br/><br/>• User Knowledge<br/>• Projects<br/>• Knowledge Graph<br/>• Decisions<br/>• Tasks<br/>• Timeline"]
+
+    A["AI Engine<br/><br/>• Prompt Builder<br/>• Model Selector<br/>• Context Optimizer<br/>• Token Optimizer"]
+
+    P["AI Providers<br/><br/>Gemini<br/>GPT<br/>Claude<br/>Ollama"]
+
+    U --> F
+    F --> B
+    B --> C
+
+    C -->|Retrieve / Store| K
+    C -->|Build Context| A
+    A --> P
+    P --> C
+    C -->|Update Knowledge| K
+    C --> F
+```
+
+## 1. React Frontend
+
+**Purpose**
+
+Provides the interface through which users interact with SwordAI.
+
+**Responsibilities**
+
+- Chat Interface
+- Voice Interaction
 - Project Management
-- Settings
 - File Uploads
+- Settings
 
----
+## 2. Local Knowledge base
 
-## 2. Backend
+**Stores**
 
-Acts as the central controller.
+- User Brain
+- Projects
+- Knowledge Graph
+- Decisions
+- Tasks
+- Timeline
+- Notes
+- Research
 
-Responsibilities:
-- Receive user requests
-- Coordinate all modules
-- Connect frontend with the AI system
-- Handle APIs
-
----
+The Local Knowledge Base is the single source of truth for SwordAI.
 
 ## 3. Context & Memory Engine
 
-The brain of SwordAI.
+**Purpose**
 
-Responsibilities:
-- Detect what the user is asking.
-- Identify related projects.
-- Retrieve only relevant knowledge.
-- Decide what new information should be saved.
-- Update project knowledge after every conversation.
+Acts as the brain of SwordAI by managing context and long-term memory.
 
----
+**Responsibilities**
 
-## 4. Local Knowledge Base
+- Understand the user's request.
+- Identify the relevant project.
+- Retrieve only the required knowledge from the Local Knowledge Base.
+- Send the relevant context to the AI Engine.
+- Analyze the AI response.
+- Extract important knowledge from the conversation.
+- Update the Local Knowledge Base with new knowledge.
 
-The permanent memory of SwordAI.
+The Context & Memory Engine is responsible for both context retrieval and memory management, enabling SwordAI to continue projects from any conversation while minimizing token usage.
 
-Stores:
+## 3. AI Engine
 
-- User Knowledge
-- Projects
-- Research
-- Decisions
-- Tasks
-- Notes
-- Timeline
-- Knowledge Graph
+**Purpose**
 
-This is the source of truth for the assistant.
+Prepares optimized requests for AI providers.
 
----
+**Responsibilities**
 
-## 5. AI Engine
+- Prompt Building
+- Context Optimization
+- Token Optimization
+- AI Provider Selection
 
-Prepares requests for AI providers.
+The AI Engine never stores memory permanently.
+It only performs reasoning using the context provided by the Context & Memory Engine.
 
-Responsibilities:
+## 4. AI Provider
 
-- Build optimized prompts
-- Attach relevant context
-- Select AI provider
-- Reduce token usage
-
----
-
-## 6. AI Provider
-
-External AI model used for reasoning.
-
-Examples:
-
-- Gemini
-- OpenAI
-- Claude
-- Ollama (Local)
-
-The provider performs reasoning but does not permanently remember project information.
-
----
+The AI Provider performs reasoning only and return the responses in between memory engine retrives relevant knowledge.
+It has no permanent memory of the user's projects.
 
 # Project Philosophy
 
-Chats are **not** the source of truth.
+SwordAI is knowledge-centric, not conversation-centric.
 
-Chats only create knowledge.
+- Conversations are temporary.
+- Knowledge is permanent.
+- Projects exist independently of chats.
+- The Local Knowledge Base is the source of truth.
+- Any conversation can continue any project.
 
-Knowledge is extracted and stored inside the Local Knowledge Base.
+### 6. Request Flow
 
-Projects exist independently of conversations.
+## Step 1 — User Request
 
-A project can be continued from **any chat**, even outside the project's own folder.
+The user sends a request through the React frontend.
 
----
+Example:
 
-# Request Flow
-
-### Step 1
-
-User asks:
-
-```
-Continue SwordAI
-```
+Continue SwordAI.
 
 ---
 
-### Step 2
+## Step 2 — Backend
 
-Backend receives the request.
-
----
-
-### Step 3
-
-Context & Memory Engine detects:
-
-```
-Project = SwordAI
-Intent = Continue Development
-```
+The FastAPI backend receives the request and forwards it to the Context & Memory Engine.
 
 ---
 
-### Step 4
+## Step 3 — Understand Context
 
-Memory Engine retrieves:
+The Context & Memory Engine identifies:
 
-- Current Stage
-- Latest Decisions
+- Project
+- Intent
+- Required Knowledge
+
+---
+
+## Step 4 — Retrieve Knowledge
+
+Relevant knowledge is retrieved from the Local Knowledge Base.
+
+Examples:
+
 - Architecture
+- Decisions
 - Tasks
 - Timeline
-- Relevant Notes
+- Notes
 
-from the Local Knowledge Base.
-
----
-
-### Step 5
-
-AI Engine prepares an optimized prompt using only the required knowledge.
+Only the required knowledge is retrieved, reducing token usage.
 
 ---
 
-### Step 6
+## Step 5 — Build Prompt
 
-The request is sent to the selected AI Provider.
+The AI Engine:
+
+- Builds the prompt
+- Optimizes context
+- Selects the AI Provider
 
 ---
 
-### Step 7
+## Step 6 — AI Reasoning
 
 The AI Provider generates a response.
 
 ---
 
-### Step 8
+## Step 7 — Knowledge Extraction
 
-Before returning the response, the Memory Engine extracts any new important information.
+The Context & Memory Engine extracts any important information.
 
 Examples:
 
 - New Decision
 - Completed Task
-- New Feature
 - Architecture Update
+- New Feature
 
 ---
 
-### Step 9
+## Step 8 — Memory Update
 
-The Local Knowledge Base is updated.
-
----
-
-### Step 10
-
-The final response is shown to the user.
-
-The project is now ready to continue from **any conversation** in the future without relying on previous chat history.
+The extracted knowledge is stored inside the Local Knowledge Base.
 
 ---
+
+## Step 9 — Return Response
+
+The response is sent back to the user.
+
+SwordAI is now ready to continue the project from any future conversation.
 
 # Core Principle
 
-Knowledge is permanent.
+> Conversations create knowledge.
+>
+> Knowledge builds intelligence.
 
-Conversations are temporary.
+SwordAI remembers knowledge instead of conversations.
 
-The Local Knowledge Base is the single source of truth.
-
-Every conversation contributes to the project's knowledge instead of becoming the project's memory.
+Every interaction either retrieves existing knowledge or creates new knowledge, allowing the assistant to continuously improve while keeping context focused and token-efficient.

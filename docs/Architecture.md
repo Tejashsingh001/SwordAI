@@ -35,7 +35,7 @@ flowchart TD
     C -->|Build Context| A
     A --> P
     P --> C
-    C -->|Update Knowledge| K
+    C -->    |Update Knowledge| K
     C --> F
 ```
 

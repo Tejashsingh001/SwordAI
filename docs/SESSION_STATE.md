@@ -4,7 +4,7 @@
 13 July 2026
 
 ## Session
-Day 1
+Day 2
 
 ## Current Stage
 Stage 1 — Foundation
@@ -14,110 +14,126 @@ Stage 1 — Foundation
 
 ---
 
-# ✅ Completed Today
+# ✅ Completed So Far
+
+## Vision
 
 - Finalized the core vision of SwordAI.
-- Created the 12-stage roadmap.
-- Decided on stage-based development.
-- Agreed on feature freeze during each stage.
-- Designed the first version of the system architecture.
-- Decided that SwordAI is knowledge-centric, not chat-centric.
-- Decided that conversations are interfaces, not the source of truth.
-- Planned the project documentation structure.
+- SwordAI is a knowledge-centric AI assistant.
+- Conversations are temporary.
+- Knowledge is permanent.
 
----
+## Development Workflow
 
-# 🏗 Architecture (Current Version)
+- Decided on a 12-stage roadmap.
+- Architecture is frozen during implementation.
+- New ideas will be added to `Ideas.md` and only considered after completing the current stage.
+- GitHub repository is the project's source of truth during development.
 
-## Core Components
+## Documentation
 
-- Personal Knowledge (User Knowledge)
-- Projects
-- Knowledge Engine
-- Memory Engine
-- Local Knowledge Base
-- AI Engine
-- AI Providers
-- Automation
-
-### Philosophy
-
-Chats do **NOT** contain the knowledge.
-
-Chats create knowledge.
-
-The Memory Engine extracts important information and stores it inside the Local Knowledge Base.
-
-Projects are living knowledge entities.
-
-A project can be recalled from ANY chat, even outside the project's own conversation.
-
-The Local Knowledge Base is the single source of truth.
-
-The AI Provider is used for reasoning, while the Local Knowledge Base provides project-specific context.
-
----
-
-# ✅ Major Decisions
-
-1. SwordAI is a Knowledge Operating System, not another chatbot.
-
-2. Knowledge is permanent.
-   Conversations are temporary.
-
-3. Projects exist independently of conversations.
-
-4. Any chat can contribute knowledge to any project.
-
-5. Any new chat can continue any project by retrieving its latest state from the Local Knowledge Base.
-
-6. During development:
-   - Freeze features.
-   - Build.
-   - Test.
-   - Complete the stage.
-   - Brainstorm new features only after finishing the stage.
-
-7. The GitHub repository and documentation are the source of truth during development.
-
----
-
-# 📄 Documentation Files
+Created / planned:
 
 - Vision.md
 - Roadmap.md
 - Architecture.md
 - Decisions.md
 - Progress.md
+- Ideas.md
 - Database.md
 - API.md
-- Ideas.md
 - SESSION_STATE.md
+
+## Architecture
+
+Current Architecture Version: **v0.1**
+Status:Frozen
+
+Finalized components:
+
+- React Frontend
+- FastAPI Backend
+- Context & Memory Engine
+- Local Knowledge Base
+- AI Engine
+- AI Providers
+
+Key architectural decisions:
+
+- Merged Context Engine and Memory Engine into a single **Context & Memory Engine**.
+- The Context & Memory Engine is responsible for:
+  - Understanding user intent
+  - Retrieving relevant knowledge
+  - Extracting new knowledge
+  - Updating the Local Knowledge Base
+- AI Engine prepares optimized prompts and selects AI providers.
+- AI Providers perform reasoning only and have no permanent memory.
+- Local Knowledge Base is the single source of truth.
+
+---
+
+# ✅ Major Decisions
+
+### Decision 001
+Manual Project Memory
+
+Until SwordAI manages its own memory, every development session ends with an updated `SESSION_STATE.md`.
+
+### Decision 002
+Architecture Freeze
+
+Architecture remains unchanged during a development stage.
+
+New ideas are stored in `Ideas.md` and reviewed only after completing the stage.
+
+### Decision 003
+Context & Memory Engine
+
+SwordAI will use a single **Context & Memory Engine** instead of separate Context and Memory engines.
+
+---
+
+# 📚 Current Philosophy
+
+- Knowledge is permanent.
+- Conversations are temporary.
+- Projects exist independently of conversations.
+- Any conversation can continue any project.
+- Local Knowledge Base is the source of truth.
 
 ---
 
 # 🎯 Next Task
 
-Continue Stage 1.
+Begin Stage 1 implementation.
 
-Design:
-- Database schema
-- Backend architecture
-- API structure
+Order of work:
 
-After that:
-- Initialize FastAPI backend.
-- Initialize React frontend.
-- Connect frontend and backend.
+1. Finalize `Architecture.md`
+2. Design the database schema
+3. Design backend folder structure
+4. Initialize FastAPI backend
+5. Initialize React frontend
+6. Connect frontend and backend
+7. First API endpoint
+8. First Git commit
 
 ---
 
-# 📝 Notes for Future Chat
+# 📌 Notes for Future Chat
 
-This project is called **SwordAI**.
+Project Name: **SwordAI**
 
-It is a local-first, knowledge-centric AI operating system.
+Current Stage: **Stage 1**
 
-Do NOT redesign completed architecture unless there is a strong architectural reason.
+Architecture Version: **v0.1 (Frozen)**
 
-Continue directly from Stage 1.
+Continue implementation from Stage 1.
+
+Do not redesign the architecture unless a major architectural improvement or new core capability is discovered.
+
+Remember:
+- Context & Memory Engine manages memory.
+- AI Engine prepares prompts.
+- AI Providers perform reasoning.
+- Local Knowledge Base stores knowledge permanently.

@@ -124,3 +124,23 @@ Clear documentation improves consistency, collaboration, and long-term maintaina
 Future
 
 SwordAI will eventually generate and update documentation automatically from the codebase.
+
+Decision
+
+Title:
+Structured Conversation UI
+
+Status:
+Accepted
+
+Reason:
+Traditional AI chats become difficult to navigate during long-term projects.
+
+Decision:
+SwordAI will implement a tree-based conversation system where AI responses can contain nested discussion bubbles instead of extending the main conversation.
+
+Implementation Stage:
+Stage 6 (Frontend)
+
+Status:
+Frozen

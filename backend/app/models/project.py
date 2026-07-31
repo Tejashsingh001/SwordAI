@@ -16,3 +16,23 @@ class Project(Base):
         back_populates="project",
         cascade="all, delete"
     )
+    decisions = relationship(
+        "Decision",
+        back_populates="project",
+        cascade="all, delete"
+    )
+    research = relationship(
+        "Research",
+        back_populates="project",
+        cascade="all, delete"
+    )
+    timeline = relationship(
+        "Timeline",
+        back_populates="project",
+        cascade="all, delete"
+    )
+    knowledge = relationship(
+        "Knowledge",
+        back_populates="project",
+        cascade="all, delete"
+    )

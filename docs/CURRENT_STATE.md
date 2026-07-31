@@ -2,11 +2,11 @@
 
 ## Date
 
-20 July 2026
+31 July 2026
 
 ## Current Stage
 
-Stage 1 — Foundation
+Stage 2 — Context & Memory Engine
 
 ## Status
 
@@ -18,88 +18,7 @@ Stage 1 — Foundation
 
 🟢 Swagger Running
 
----
-
-# Current Project Structure
-
-```
-SwordAI/
-│
-├── assets/
-│
-├── backend/
-│   │
-│   ├── app/
-│   │   │
-│   │   ├── core/
-│   │   │
-│   │   ├── database/
-│   │   │   ├── __init__.py
-│   │   │   ├── database.py
-│   │   │   └── dependencies.py
-│   │   │
-│   │   ├── models/
-│   │   │   ├── __init__.py
-│   │   │   ├── models.py
-│   │   │   ├── project.py
-│   │   │   ├── task.py
-│   │   │   ├── decision.py
-│   │   │   └── user.py
-│   │   │
-│   │   ├── routes/
-│   │   │   ├── project.py
-│   │   │   └── task.py
-│   │   │
-│   │   ├── schemas/
-│   │   │   ├── project.py
-│   │   │   └── task.py
-│   │   │
-│   │   ├── services/
-│   │   │
-│   │   └── main.py
-│   │
-│   ├── venv/
-│   ├── .env
-│   ├── .gitignore
-│   ├── requirements.txt
-│   ├── requirements1.txt
-│   └── swordai.db
-│
-├── database/
-│
-├── docs/
-│   ├── API.md
-│   ├── Architecture.md
-│   ├── CURRENT_STATE.md
-│   ├── Database.md
-│   ├── Decisions.md
-│   ├── Progress.md
-│   ├── Roadmap.md
-│   ├── SESSION_STATE.md
-│   ├── TechStack.md
-│   └── Vision.md
-│
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   ├── node_modules/
-│   ├── .gitignore
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── README.md
-│   └── vite.config.js
-│
-├── memory/
-├── prompts/
-├── tests/
-├── LICENSE
-└── README.md
-```
+🟢 Stage 1 Completed
 
 ---
 
@@ -117,83 +36,100 @@ Database
 
 - SQLite
 
-API Documentation
+Architecture
 
-- Swagger UI
+- Service Layer
+- Route Layer
+- Schema Layer
+- Model Layer
+
+Documentation
+
+- Swagger
 
 Dependency Injection
 
 - Implemented
 
-CORS
-
-- Configured
-
 ---
 
-# Current Models
+# Current Database Models
 
 - Project
 - Task
 - Decision
+- Research
+- Timeline
+- Knowledge
 - User
 
 ---
 
-# Current Schemas
-
-- ProjectCreate
-- ProjectResponse
-- TaskCreate
-- TaskResponse
-
----
-
-# Current Routes
+# Current CRUD APIs
 
 Projects
 
-- POST /projects/
-- GET /projects/
-- PUT /projects/{project_id}
-- DELETE /projects/{project_id}
+- POST
+- GET
+- PUT
+- DELETE
 
 Tasks
 
-- POST /tasks/
-- GET /tasks/
-- PUT /tasks/{task_id}
-- DELETE /tasks/{task_id}
+- POST
+- GET
+- PUT
+- DELETE
 
-Health
+Decisions
 
-- GET /health
+- POST
+- GET
+- PUT
+- DELETE
 
-Root
+Research
 
-- GET /
+- POST
+- GET
+- PUT
+- DELETE
+
+Timeline
+
+- POST
+- GET
+- PUT
+- DELETE
+
+Knowledge
+
+- POST
+- GET
+- PUT
+- DELETE
 
 ---
 
-# Working Features
+# Backend Features
 
-✅ FastAPI Backend
+✅ FastAPI
 
-✅ React Frontend
+✅ SQLAlchemy
 
-✅ React ↔ FastAPI Communication
+✅ SQLite
 
-✅ SQLite Database
-
-✅ SQLAlchemy ORM
-
-✅ Project CRUD
-
-✅ Task CRUD
+✅ Swagger
 
 ✅ Dependency Injection
 
-✅ Swagger Documentation
+✅ Input Validation
+
+✅ Response Models
+
+✅ Service Layer
+
+✅ CRUD APIs
 
 ✅ API Testing
 
@@ -205,15 +141,19 @@ Version
 
 v1.0 (Frozen)
 
-Frontend
+React
 
 ↓
 
-FastAPI Backend
+FastAPI
 
 ↓
 
 Routes
+
+↓
+
+Services
 
 ↓
 
@@ -225,37 +165,67 @@ SQLite
 
 ---
 
-# Pending Work
+# UI Architecture
 
-Stage 1 Remaining
+Version
 
-- Create Service Layer
-- Improve Input Validation
-- Expand Database Models
-- Research Model
-- Timeline Model
-- Knowledge Model
+v1.0 (Frozen)
+
+Key Features
+
+- Project-centric workspace
+- Structured Conversation UI
+- Discussion Bubble System
+- Context Isolation
+- Conversation Tree
+- Knowledge-first workflow
+
+Implementation Stage
+
+Stage 6
+
+---
+
+# Current Focus
+
+Stage 2
+
+Context & Memory Engine
+
+Planned Components
+
+- Memory Extractor
+- Memory Classifier
+- Memory Importance
+- Knowledge Storage Pipeline
+- Context Retrieval
+- Prompt Builder
+- AI Engine Integration
 
 ---
 
 # Next Milestone
 
-✅ Finish Stage 1
+Implement the first working Memory Engine.
+
+The initial version will be rule-based before integrating Gemini.
+
+Goal:
+
+Conversation
 
 ↓
 
-🚀 Begin Stage 2
-
-Context & Memory Engine
+Memory Extraction
 
 ↓
 
-Local Knowledge Base
+Knowledge Storage
 
 ↓
 
-AI Engine
+Context Retrieval
 
 ↓
 
-Gemini Integration
+AI Response

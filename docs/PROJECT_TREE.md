@@ -19,17 +19,34 @@ SwordAI/
 │   │   │   ├── project.py
 │   │   │   ├── task.py
 │   │   │   ├── decision.py
+│   │   │   ├── research.py
+│   │   │   ├── timeline.py
+│   │   │   ├── knowledge.py
 │   │   │   └── user.py
 │   │   │
 │   │   ├── routes/
 │   │   │   ├── project.py
-│   │   │   └── task.py
+│   │   │   ├── task.py
+│   │   │   ├── decision.py
+│   │   │   ├── research.py
+│   │   │   ├── timeline.py
+│   │   │   └── knowledge.py
 │   │   │
 │   │   ├── schemas/
 │   │   │   ├── project.py
-│   │   │   └── task.py
+│   │   │   ├── task.py
+│   │   │   ├── decision.py
+│   │   │   ├── research.py
+│   │   │   ├── timeline.py
+│   │   │   └── knowledge.py
 │   │   │
 │   │   ├── services/
+│   │   │   ├── project_service.py
+│   │   │   ├── task_service.py
+│   │   │   ├── decision_service.py
+│   │   │   ├── research_service.py
+│   │   │   ├── timeline_service.py
+│   │   │   └── knowledge_service.py
 │   │   │
 │   │   └── main.py
 │   │
@@ -37,7 +54,6 @@ SwordAI/
 │   ├── .env
 │   ├── .gitignore
 │   ├── requirements.txt
-│   ├── requirements1.txt
 │   └── swordai.db
 │
 ├── database/
@@ -52,6 +68,7 @@ SwordAI/
 │   ├── Roadmap.md
 │   ├── SESSION_STATE.md
 │   ├── TechStack.md
+│   ├── UI_ARCHITECTURE.md
 │   └── Vision.md
 │
 ├── frontend/
@@ -70,10 +87,7 @@ SwordAI/
 │   └── vite.config.js
 │
 ├── memory/
-│
 ├── prompts/
-│
 ├── tests/
-│
 ├── LICENSE
 └── README.md

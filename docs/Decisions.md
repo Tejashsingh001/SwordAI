@@ -54,23 +54,24 @@ Future
 The engine may internally evolve, but remains a single logical module.
 
 Decision 004
+
 Title
 
-Frontend Development Strategy
+AI-Assisted Development Workflow
 
 Decision
 
-Codex will be used only for frontend implementation.
+SwordAI architecture, product design, documentation, and technical decisions are created manually through planning sessions.
 
-Backend, AI Engine, Memory System, Database, and Architecture will be developed manually.
+Codex is responsible for implementing approved code changes following the documented architecture and development rules.
 
 Reason
 
-Frontend development is repetitive, while backend and system design provide the most learning and interview value.
+This keeps architectural control with the developer while accelerating implementation without sacrificing understanding.
 
 Future
 
-This strategy can be revisited if development needs change.
+As SwordAI matures, implementation may be distributed across multiple AI coding assistants while maintaining the same architecture-first workflow.
 
 Decision 005
 Title

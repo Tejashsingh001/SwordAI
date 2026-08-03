@@ -11,8 +11,8 @@ class ContextMemoryEngine:
 
     Other backend modules should interact only with this class. The extractor,
     classifier, importance scorer, and storage coordinator remain internal
-    implementation details behind this interface. Context retrieval, database
-    retrieval and AI model calls are intentionally not part of this stage.
+    implementation details behind this interface. Context retrieval and AI
+    model calls are intentionally not part of this stage.
     """
 
     def __init__(self, db: Session) -> None:

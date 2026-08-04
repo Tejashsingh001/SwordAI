@@ -29,3 +29,7 @@ class AIResponse(BaseModel):
         ...,
         description="Generated text returned by the AI model.",
     )
+    conversation_id: int | None = Field(
+        default=None,
+        description="Conversation associated with this AI interaction.",
+    )

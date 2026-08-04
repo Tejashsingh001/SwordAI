@@ -10,12 +10,13 @@ from app.memory.repository import MemoryRepository
 
 
 class MemoryStorage:
-    """Coordinate the memory pipeline and persist specialized records.
+    """Coordinate the memory pipeline and persist accepted memories.
 
-    The repository persists specialized records after extraction,
-    classification, and importance scoring. General memories are intentionally
-    ignored in the current version. This keeps pipeline orchestration separate
-    from individual processing components and database access.
+    The repository persists memories after extraction, classification,
+    and importance scoring. MemoryStorage is responsible for orchestrating
+    the processing pipeline while keeping extraction, classification,
+    importance scoring, and database access separated into dedicated
+    components.
     """
 
     def __init__(self, db: Session) -> None:
@@ -27,20 +28,33 @@ class MemoryStorage:
         self.repository = MemoryRepository(db)
 
     def process(self, memory: Memory) -> Memory | None:
-        """Return an enriched memory after it is saved through the repository.
+        """Process, enrich, and persist a memory.
 
-        The method rejects non-memory-worthy content, classifies accepted
-        content, assigns an importance score, and persists non-general
-        memories. General memories are returned without being stored.
+        The method performs the following steps:
+
+        1. Determine whether the content is memory-worthy.
+        2. Classify the memory.
+        3. Calculate its importance score.
+        4. Persist the enriched memory through the repository.
+
+        Returns:
+            The enriched Memory object if the content is accepted,
+            otherwise None.
         """
+        # Reject content that should not become memory.
         if not self.extractor.extract(memory.content):
             return None
 
+        # Categorize the memory.
         memory.category = self.classifier.classify(memory.content)
+
+        # Score the memory's importance.
         memory.importance = self.importance_scorer.calculate(
             memory.content,
             memory.category,
         )
+
+        # Persist the processed memory.
         self.repository.save_memory(memory)
 
         return memory

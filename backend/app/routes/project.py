@@ -3,7 +3,8 @@ from sqlalchemy.orm import Session
 
 from app.database.dependencies import get_db
 from app.schemas.project import ProjectCreate, ProjectResponse
-from app.services import project_service
+from app.schemas.dashboard import ProjectDashboardResponse
+from app.services import dashboard_service, project_service
 
 router = APIRouter(
     prefix="/projects",
@@ -24,6 +25,15 @@ def get_projects(
     db: Session = Depends(get_db)
 ):
     return project_service.get_projects(db)
+
+
+@router.get("/{project_id}/dashboard", response_model=ProjectDashboardResponse)
+def get_project_dashboard(
+    project_id: int,
+    db: Session = Depends(get_db),
+) -> ProjectDashboardResponse:
+    """Return aggregate statistics and activity for one project."""
+    return dashboard_service.get_project_dashboard(project_id, db)
 
 
 @router.put("/{project_id}", response_model=ProjectResponse)

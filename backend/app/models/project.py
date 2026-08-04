@@ -36,3 +36,8 @@ class Project(Base):
         back_populates="project",
         cascade="all, delete"
     )
+    conversations = relationship(
+        "Conversation",
+        back_populates="project",
+        cascade="all, delete"
+    )

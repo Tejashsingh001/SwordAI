@@ -2,7 +2,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.database import Base, engine
-from app.routes import knowledge, project, research, task, timeline
+from app.routes import (
+    ai,
+    conversation,
+    knowledge,
+    message,
+    project,
+    research,
+    task,
+    tag,
+    timeline,
+)
 
 Base.metadata.create_all(bind=engine)
 
@@ -25,6 +35,10 @@ app.include_router(task.router)
 app.include_router(research.router)
 app.include_router(timeline.router)
 app.include_router(knowledge.router)
+app.include_router(ai.router)
+app.include_router(conversation.router)
+app.include_router(message.router)
+app.include_router(tag.router)
 
 
 @app.get("/", tags=["Root"])

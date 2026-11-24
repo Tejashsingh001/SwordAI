@@ -1,457 +1,181 @@
-# ⚔️ SwordAI - PROJECT_STATE
+# SwordAI — PROJECT_STATE.md
 
-## Date
+**Last Updated:** 25 November 2026  
+**Current Focus:** Backend testing
 
-02 August 2026
+## 1. Project Vision
 
----
+SwordAI is a Personal AI Operating System built around persistent knowledge and project context.
 
-# Current Stage
+Core philosophy:
+- Conversations are temporary. Knowledge is permanent.
+- Knowledge is the source of truth, not conversations.
+- Conversations create knowledge. Knowledge builds intelligence.
 
-## Stage 2 — Context & Memory Engine
+## 2. Architecture
 
-Status: 🟡 In Progress
+Architecture remains frozen.
 
----
-
-# Overall Progress
-
-Planning            ██████████ 100% ✅
-
-Stage 1             ██████████ 100% ✅
-
-Stage 2             ███░░░░░░░ 30%
-
-Stage 3             ░░░░░░░░░░ 0%
-
-Overall Project     ███░░░░░░░ 30%
-
----
-
-# Backend Status
-
-✅ FastAPI Running
-
-✅ SQLite Connected
-
-✅ SQLAlchemy ORM
-
-✅ Dependency Injection
-
-✅ Service Layer
-
-✅ CRUD APIs
-
-✅ Swagger Documentation
-
-✅ Input Validation
-
-✅ Response Models
-
----
-
-# Frontend Status
-
-✅ React Running
-
-✅ Vite
-
-✅ Connected with FastAPI
-
-UI Development Status:
-
-Not Started (Planned for Stage 6)
-
----
-
-# Architecture
-
-Version
-
-v1.0 (Frozen)
-
-Architecture
-
-React
-
-↓
-
+```text
+React Frontend
+      ↓
 FastAPI Backend
-
-↓
-
+      ↓
 Routes
-
-↓
-
+      ↓
 Services
-
-↓
-
-Context & Memory Engine
-
-↓
-
-Database Layer
-
-↓
-
+      ↓
+AI Engine / Context & Memory Engine
+      ↓
+Context Retriever
+      ↓
+Prompt Builder
+      ↓
+AI Provider Client (Gemini currently)
+      ↓
+Response
+      ↓
+Memory Engine
+      ↓
 SQLite
-
-↓
-
-AI Engine (Future)
-
-↓
-
-Gemini / GPT / Claude
-
-Architecture Status
-
-🟢 Frozen
-
----
-
-# UI Architecture
-
-Version
-
-v1.0 (Frozen)
-
-Status
-
-Implementation Planned
-
-(Stage 6)
-
-Core UI Features
-
-- Project Dashboard
-- Structured Conversation UI
-- Discussion Bubble System
-- Context Isolation
-- Conversation Tree
-- Knowledge-first Workflow
-- Memory Transparency
-- Timeline View
-- Knowledge Viewer
-
----
-
-# Current Database Models
-
-Implemented
-
-- Project
-- Task
-- Decision
-- Research
-- Timeline
-- Knowledge
-- User
-
----
-
-# Current CRUD APIs
-
-Projects
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Tasks
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Decisions
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Research
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Timeline
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Knowledge
-
-- POST
-- GET
-- PUT
-- DELETE
-
-Health
-
-- GET /health
-
-Root
-
-- GET /
-
----
-
-# Completed Features
-
-Backend
-
-✅ FastAPI
-
-✅ SQLite
-
-✅ SQLAlchemy
-
-✅ Swagger
-
-✅ Dependency Injection
-
-✅ CRUD APIs
-
-✅ Service Layer
-
-✅ API Testing
-
-Validation
-
-✅ Pydantic Schemas
-
-✅ Response Models
-
-✅ HTTPException Handling
-
-Documentation
-
-✅ Vision
-
-✅ Roadmap
-
-✅ Architecture
-
-✅ UI Architecture
-
-✅ Decisions
-
-✅ API
-
-✅ Database
-
-✅ Tech Stack
-
----
-
-# Stage 2 Progress
-
-Current Focus
-
-Context & Memory Engine
-
-Designed Modules
-
-✅ Memory Object
-
-✅ Memory Extractor
-
-✅ Memory Classifier
-
-✅ Memory Importance Scorer
-
-✅ Memory Storage Pipeline
-
-✅ ContextMemoryEngine
-
-Implementation Status
-
-Architecture designed.
-
-Codex implementation prompts prepared.
-
-Database integration pending.
-
----
-
-# Current Memory Pipeline
-
-Conversation
-
-↓
-
-Memory Object
-
-↓
-
-Memory Extractor
-
-↓
-
-Memory Classifier
-
-↓
-
-Importance Scorer
-
-↓
-
-Memory Storage
-
-↓
-
-Database (Next Step)
-
-↓
-
-Context Retrieval (Future)
-
-↓
-
-Prompt Builder (Future)
-
-↓
-
-AI Engine (Future)
-
-↓
-
-Gemini / GPT / Claude
-
----
-
-# Current Project Philosophy
-
-Knowledge is permanent.
-
-Conversations are temporary.
-
-AI should remember through structured knowledge rather than raw conversation history.
-
-Projects are the center of the system.
-
----
-
-# Product Decisions
-
-Accepted
-
-✅ Knowledge-First Development
-
-✅ Architecture Freeze
-
-✅ Unified Context & Memory Engine
-
-✅ AI-Assisted Development Workflow
-
-✅ Knowledge-Driven Development
-
-✅ Maintain PROJECT_STATE.md
-
-✅ Documentation Before Implementation
-
-✅ Structured Conversation UI
-
----
-
-# Documentation
-
-Current Files
-
-- PROJECT_STATE.md
-- Vision.md
-- Roadmap.md
-- Architecture.md
-- UI_Architecture.md
-- Decisions.md
-- API.md
-- Database.md
-- Progress.md
-- TechStack.md
-- Ideas.md
-
----
-
-# Completed This Session
-
-- Deep understanding of SwordAI architecture.
-- Clarified FastAPI vs Gemini/OpenAI APIs.
-- Understood Python module interaction through imports.
-- Designed the complete Memory Engine pipeline.
-- Prepared Codex prompts for:
-  - Memory Engine Foundation
-  - Memory Model
-  - Memory Extractor
-  - Memory Classifier
-  - Memory Importance Scorer
-  - Memory Storage Pipeline
-  - ContextMemoryEngine
-- Finalized documentation workflow.
-- Replaced CURRENT_STATE.md + SESSION_STATE.md with PROJECT_STATE.md.
-
----
-
-# Next Session
-
-Stage 2 Implementation
-
-Immediate Tasks
-
-1. Connect Memory Engine to the database.
-2. Implement Context Retrieval.
-3. Build Prompt Builder.
-4. Complete first end-to-end memory workflow.
-5. Prepare Gemini integration.
-
----
-
-# Current Milestone
-
-🚀 Build the first working Context & Memory Engine capable of automatically extracting, classifying, scoring, and storing project knowledge.
-
----
-
-# Long-Term Vision
-
-SwordAI is not a chatbot.
-
-SwordAI is a Personal AI Operating System.
-
-Its intelligence comes from:
-
-Projects
-
-↓
-
-Knowledge
-
-↓
-
-Memory
-
-↓
-
-Context
-
-↓
-
-AI
-
-rather than relying on conversation history alone.
-
----
-
-# Project Motto
-
-> "Conversations create knowledge.
-> Knowledge builds intelligence."
+```
+
+Technology: React, FastAPI, Python, SQLAlchemy, SQLite, Pydantic, Gemini.
+
+## 3. Current Development Progress
+
+Previously implemented and audited:
+- Stage 1: Foundation and core CRUD.
+- Stage 2: Context & Memory Engine.
+- Stage 3: AI integration and conversation system.
+
+Current focus: Building a reliable automated testing suite before proceeding further.
+
+## 4. Testing Infrastructure — Completed
+
+Created:
+- `backend/pytest.ini`
+- `backend/requirements-test.txt`
+- `backend/tests/conftest.py`
+- `backend/tests/integration/test_infrastructure.py`
+
+Features:
+- In-memory SQLite database for tests.
+- Isolated database sessions.
+- FastAPI TestClient.
+- Database dependency overrides.
+- Protection against modifying production `swordai.db`.
+
+## 5. Unit Tests — Completed
+
+Files:
+
+```text
+backend/tests/unit/
+├── __init__.py
+├── test_project_task_schemas.py
+├── test_knowledge_research_timeline_schemas.py
+├── test_conversation_message_tag_schemas.py
+├── test_memory_rules.py
+├── test_conversation_message_tag_repositories.py
+├── test_conversation_message_tag_services.py
+└── test_core_crud_services.py
+```
+
+Coverage includes:
+
+**Schemas**
+- Project, Task, Research, Timeline, Knowledge.
+- Conversation, Message, Tag and Dashboard responses.
+- Validation, boundaries, defaults and invalid inputs.
+
+**Memory rules**
+- Extraction.
+- Classification.
+- Category precedence.
+- Importance scoring and adjustments.
+
+**Repositories and services**
+- Conversation, Message and Tag repository operations.
+- Conversation title generation and search.
+- Pinning, archiving and restoring.
+- Message persistence and summary refresh.
+- Tag CRUD and conversation assignment.
+- Project, Task, Knowledge, Research and Timeline service CRUD.
+
+Important finding:
+Project, Task, Knowledge, Research and Timeline repository classes do not currently exist. Their services directly perform SQLAlchemy operations. Tests correctly cover the existing service implementation instead.
+
+<badge color="success">83 tests passed</badge>
+
+Latest full-suite result:
+
+```text
+83 passed in 0.83s
+```
+
+No production database or external AI APIs were used. No application source code or business logic was modified.
+
+## 6. Known Testing Gaps
+
+Not yet tested:
+- Dashboard repository/service.
+- Memory Storage.
+- Context Retriever.
+- AI orchestration.
+- API route integration.
+- Long-title truncation.
+- Every manual-summary transition.
+
+Existing implementation concern:
+- Core CRUD services accept `project_id` values without checking whether the Project exists.
+
+Existing warnings:
+- AnyIO/pytest compatibility.
+- Pydantic v2 class-based configuration deprecations.
+- SQLAlchemy model `datetime.utcnow()` deprecations.
+
+## 7. Previous Audit Findings — Unresolved
+
+- Decision CRUD API missing.
+- User model/API incomplete.
+- Some services bypass repositories.
+- SQLite foreign-key enforcement not enabled.
+- No database migration system.
+- AI failures can leave partially saved interactions.
+- Memory failures are logged and swallowed.
+- Memory importance and timestamp handling inconsistencies.
+- Duplicate unused `MemoryPromptBuilder` placeholder.
+- Potentially misnamed `backend/app/routes/__.init__.py`.
+
+These remain documented issues, not changes made during testing.
+
+## 8. Next Session — Starting Point
+
+Continue testing in this order:
+
+1. Dashboard repository/service tests.
+2. Memory Storage tests.
+3. Context Retriever tests.
+4. API CRUD integration tests.
+5. Dashboard and conversation API regression tests.
+6. AI Service and AI API tests with mocked Gemini responses.
+7. Review coverage and remaining gaps.
+
+Review existing implementation before writing each batch of tests.
+
+## 9. Development Rules
+
+- One Codex prompt at a time.
+- Inspect → Implement → Review → Test.
+- Do not modify application logic just to satisfy tests.
+- Never use production database for tests.
+- Mock external AI APIs.
+- Keep architecture frozen unless explicitly changed.
+- GitHub remains the source of truth.
+- Update this file at the end of every development session.
+
+**Architecture:** Unchanged.  
+**Production database:** Protected.  
+**Latest test result:** 83 passed.  
+**Next task:** Dashboard, Memory Storage and Context Retriever testing.
